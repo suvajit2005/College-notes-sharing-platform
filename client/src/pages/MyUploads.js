@@ -23,7 +23,7 @@ const MyUploads = () => {
       const queryParams = new URLSearchParams();
       if (searchTerm) queryParams.append('search', searchTerm);
 
-      const response = await fetch(`http://localhost:5000/api/notes/teacher/uploads?${queryParams}`, {
+      const response = await fetch(`https://college-notes-sharing-platform-backend.onrender.com/api/notes/teacher/uploads?${queryParams}`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -694,5 +694,6 @@ const MyUploads = () => {
     </div>
   );
 };
+
 
 export default MyUploads;
