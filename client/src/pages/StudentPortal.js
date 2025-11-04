@@ -786,7 +786,7 @@ const StudentPortal = () => {
     setError('');
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/notes', {
+      const response = await fetch('https://college-notes-sharing-platform-backend.onrender.com/api/notes', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -853,7 +853,7 @@ const StudentPortal = () => {
       setDownloading(note._id);
       const token = localStorage.getItem('token');
       
-      const downloadResponse = await fetch(`http://localhost:5000/api/notes/${note._id}/download`, {
+      const downloadResponse = await fetch(`https://college-notes-sharing-platform-backend.onrender.com/api/notes/${note._id}/download`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -865,7 +865,7 @@ const StudentPortal = () => {
 
       if (downloadResponse.ok && downloadData.success) {
         // Download the file
-        const downloadUrl = `http://localhost:5000${note.filePath}`;
+        const downloadUrl = `https://college-notes-sharing-platform-backend.onrender.com${note.filePath}`;
         window.open(downloadUrl, '_blank');
         
         // Refresh notes to update download count
@@ -1697,5 +1697,6 @@ const StudentPortal = () => {
     </div>
   );
 };
+
 
 export default StudentPortal;
