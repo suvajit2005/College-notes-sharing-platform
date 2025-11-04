@@ -54,7 +54,7 @@ const BrowseNotes = () => {
       if (filters.subject) queryParams.append('subject', filters.subject);
       if (searchTerm) queryParams.append('search', searchTerm);
 
-      const response = await fetch(`http://localhost:5000/api/notes?${queryParams}`, {
+      const response = await fetch(`https://college-notes-sharing-platform-backend.onrender.com/api/notes?${queryParams}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -86,7 +86,7 @@ const BrowseNotes = () => {
       const token = localStorage.getItem('token');
       
       // Increment download count
-      await fetch(`http://localhost:5000/api/notes/${note._id}/download`, {
+      await fetch(`https://college-notes-sharing-platform-backend.onrender.com/api/notes/${note._id}/download`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -897,5 +897,6 @@ const BrowseNotes = () => {
     </div>
   );
 };
+
 
 export default BrowseNotes;
