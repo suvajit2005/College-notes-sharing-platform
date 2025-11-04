@@ -108,7 +108,7 @@ const UploadNotes = () => {
 
     console.log('Sending upload request...');
 
-    const response = await fetch('http://localhost:5000/api/notes/upload', {
+    const response = await fetch('https://college-notes-sharing-platform-backend.onrender.com/api/notes/upload', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`
@@ -603,5 +603,6 @@ const UploadNotes = () => {
     </div>
   );
 };
+
 
 export default UploadNotes;
