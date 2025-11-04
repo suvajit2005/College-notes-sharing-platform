@@ -42,7 +42,7 @@ export function AuthProvider({ children }) {
   const login = async (email, password) => {
     try {
       console.log('Attempting login...');
-      const response = await axios.post('/api/auth/login', {
+      const response = await axios.post('https://college-notes-sharing-platform-backend.onrender.com/api/auth/login', {
         email,
         password
       });
@@ -73,7 +73,7 @@ export function AuthProvider({ children }) {
     try {
       console.log('Attempting registration...', userData);
       
-      const response = await axios.post('/api/auth/register', userData);
+      const response = await axios.post('https://college-notes-sharing-platform-backend.onrender.com/api/auth/register', userData);
       
       const { token, user } = response.data;
       
@@ -128,7 +128,7 @@ export function AuthProvider({ children }) {
   // Get current user (verify token is still valid)
   const getCurrentUser = async () => {
     try {
-      const response = await axios.get('/api/auth/me');
+      const response = await axios.get('https://college-notes-sharing-platform-backend.onrender.com/api/auth/me');
       setUser(response.data.user);
       return response.data.user;
     } catch (error) {
@@ -152,4 +152,5 @@ export function AuthProvider({ children }) {
       {!loading && children}
     </AuthContext.Provider>
   );
+
 }
