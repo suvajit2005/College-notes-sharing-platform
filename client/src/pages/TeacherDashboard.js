@@ -14,7 +14,7 @@ const TeacherDashboard = () => {
     setError('');
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/notes/teacher/dashboard', {
+      const response = await fetch('https://college-notes-sharing-platform-backend.onrender.com/api/notes/teacher/dashboard', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -684,5 +684,6 @@ const TeacherDashboard = () => {
     </div>
   );
 };
+
 
 export default TeacherDashboard;
