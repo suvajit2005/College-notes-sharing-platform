@@ -22,7 +22,7 @@ const MyDownloads = () => {
         sortOrder
       });
 
-      const response = await fetch(`http://localhost:5000/api/notes/student/downloads?${queryParams}`, {
+      const response = await fetch(`https://college-notes-sharing-platform-backend.onrender.com/api/notes/student/downloads?${queryParams}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -82,7 +82,7 @@ const MyDownloads = () => {
       const token = localStorage.getItem('token');
       
       // Call download endpoint
-      await fetch(`http://localhost:5000/api/notes/${note._id}/download`, {
+      await fetch(`https://college-notes-sharing-platform-backend.onrender.com/api/notes/${note._id}/download`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -90,7 +90,7 @@ const MyDownloads = () => {
       });
 
       // Download the file
-      const downloadUrl = `http://localhost:5000${note.filePath}`;
+      const downloadUrl = `https://college-notes-sharing-platform-backend.onrender.com${note.filePath}`;
       window.open(downloadUrl, '_blank');
       
     } catch (error) {
@@ -847,5 +847,6 @@ const MyDownloads = () => {
     </div>
   );
 };
+
 
 export default MyDownloads;
